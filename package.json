@@ -1,0 +1,23 @@
+{
+  "name": "fraudshield-client",
+  "version": "1.0.0",
+  "description": "Official TypeScript/JavaScript client SDK for FraudShield Email Verification & Disposable Email Detection API on RapidAPI",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "test": "node examples/quickstart.js"
+  },
+  "keywords": [
+    "email-verification",
+    "disposable-email",
+    "fraud-detection",
+    "temporary-email",
+    "burner-email",
+    "rapidapi",
+    "mx-check"
+  ],
+  "author": "FraudShield",
+  "license": "MIT"
+}
