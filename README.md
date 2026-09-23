@@ -1,18 +1,19 @@
 # 🛡️ FraudShield Client SDK (JavaScript / TypeScript)
 
-Official client SDK for **FraudShield**, the ultra-low-latency enterprise email fraud detection, disposable/burner email checker, and DNS MX resolution API available on the [RapidAPI Marketplace](https://rapidapi.com).
+Official client SDK for **FraudShield**, the ultra-low-latency enterprise email fraud detection, disposable/burner email checker, and DNS MX resolution API by **NexusGrid** on [RapidAPI](https://rapidapi.com).
 
+[![NPM Version](https://img.shields.io/npm/v/fraudshield-client.svg)](https://www.npmjs.com/package/fraudshield-client)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Zero Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen.svg)](package.json)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue?logo=typescript)](https://www.typescriptlang.org)
-[![RapidAPI](https://img.shields.io/badge/RapidAPI-Verified-success)](https://rapidapi.com)
 
 ---
 
 ## ⚡ What is FraudShield?
 
 FraudShield protects SaaS signups, marketing funnels, and e-commerce checkouts by detecting:
-* **Disposable & Temporary Burner Emails:** Instant lookup against thousands of active burner domains (10minutemail, GuerrillaMail, Mailinator, Temp-Mail, etc.).
-* **Live Edge DNS-over-HTTPS (DoH) MX Checks:** Verifies mail exchange server existence in real-time via Cloudflare & Google DNS without UDP socket latency.
+* **Disposable & Temporary Burner Emails:** Instant lookup against thousands of active burner domains (`10minutemail`, `GuerrillaMail`, `Mailinator`, `Temp-Mail`, etc.).
+* **Live Edge DNS-over-HTTPS (DoH) MX Checks:** Verifies mail exchange server existence in real time via Cloudflare & Google DNS without UDP socket latency.
 * **Typo & Typosquatting Traps:** Automatically catches misspelled domains (e.g. `gmial.com`, `hotmial.com`) and suggests corrections.
 * **Role & Disposable Inboxes:** Flags shared inboxes (`billing@`, `support@`, `admin@`).
 * **Weighted Fraud Risk Score (0–100):** Clear deliverability verdicts: `deliverable`, `risky`, `undeliverable`, or `disposable`.
@@ -28,6 +29,8 @@ FraudShield protects SaaS signups, marketing funnels, and e-commerce checkouts b
 ---
 
 ## 📦 Installation
+
+Install directly from npm:
 
 ```bash
 npm install fraudshield-client
@@ -49,10 +52,10 @@ const client = new FraudShield({
 async function main() {
   const result = await client.verify('user@mailinator.com');
 
-  console.log('Verdict:', result.verdict);       // 'disposable'
-  console.log('Risk Score:', result.risk_score);  // 90
-  console.log('Is Disposable:', result.is_disposable); // true
-  console.log('Flags:', result.flags);           // ['DISPOSABLE_EMAIL_DOMAIN']
+  console.log('Verdict:', result.verdict);          // 'disposable'
+  console.log('Risk Score:', result.risk_score);     // 90
+  console.log('Is Disposable:', result.is_disposable);// true
+  console.log('Flags:', result.flags);              // ['DISPOSABLE_EMAIL_DOMAIN']
 }
 
 main();
@@ -96,16 +99,5 @@ console.log(`Verified ${batchResult.total} emails in ${batchResult.total_latency
 
 ---
 
-## 🌐 cURL Example
-
-```bash
-curl --request GET \
-	--url 'https://fraud-shield-api.fraud-shield-api.workers.dev/v1/verify?email=test%40mailinator.com&check_mx=true' \
-	--header 'x-rapidapi-host: fraud-shield-api.p.rapidapi.com' \
-	--header 'x-rapidapi-key: YOUR_RAPIDAPI_KEY'
-```
-
----
-
 ## 📄 License
-MIT License. Free for commercial and private use.
+MIT License. Maintained by NexusGrid. Free for commercial and private use.
